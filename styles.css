@@ -405,16 +405,31 @@ body {
 }
 
 .intro-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    display: block;
 }
 
 .intro-text {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-gray);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.intro-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.intro-equation {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
 }
 
 .intro-text p {
