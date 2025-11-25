@@ -2,6 +2,21 @@
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+    
+    const closeDropdownMenus = () => {
+        dropdownMenus.forEach(menu => {
+            menu.classList.remove('open');
+        });
+    };
+    
+    const closeNavMenu = () => {
+        if (hamburger && navMenu) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            closeDropdownMenus();
+        }
+    };
     
     // 漢堡選單切換
     if (hamburger) {
@@ -13,28 +28,42 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 點擊選單項目時關閉漢堡選單
     document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (hamburger && navMenu) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+        link.addEventListener('click', (event) => {
+            const parentItem = link.closest('li');
+            const isDropdownToggle = parentItem && parentItem.classList.contains('dropdown') && link === parentItem.querySelector(':scope > a');
+            
+            if (window.innerWidth <= 968 && isDropdownToggle) {
+                return;
             }
+            
+            closeNavMenu();
         });
     });
     
     // 下拉菜單功能（移動端）
     const dropdowns = document.querySelectorAll('.dropdown');
     dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
+        const link = dropdown.querySelector(':scope > a') || dropdown.querySelector('a');
         if (link) {
             link.addEventListener('click', function(e) {
                 if (window.innerWidth <= 968) {
                     e.preventDefault();
                     const menu = dropdown.querySelector('.dropdown-menu');
                     if (menu) {
-                        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+                        const isOpen = menu.classList.contains('open');
+                        closeDropdownMenus();
+                        menu.classList.toggle('open', !isOpen);
                     }
                 }
             });
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth > 968 || !navMenu || !hamburger) return;
+        const clickedInsideNav = navMenu.contains(event.target) || hamburger.contains(event.target);
+        if (!clickedInsideNav && navMenu.classList.contains('active')) {
+            closeNavMenu();
         }
     });
     
@@ -476,4 +505,5 @@ style.textContent = `
         }
     }
 `;
+document.head.appendChild(style); 
 document.head.appendChild(style); 

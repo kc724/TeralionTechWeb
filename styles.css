@@ -1051,6 +1051,11 @@ body {
         border: none;
         margin-top: 0.5rem;
         padding-left: 1rem;
+        display: none;
+    }
+    
+    .dropdown-menu.open {
+        display: block;
     }
     
     .hero-title {
