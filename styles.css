@@ -552,8 +552,29 @@ body {
     line-height: 1.8;
     color: var(--text-gray);
     text-align: center;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
+    overflow: visible;
+}
+
+.intro-text-content {
+    text-align: left;
+    overflow: visible;
+    margin-top: 0;
+}
+
+.intro-text-content p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.intro-text-content p:first-of-type {
+    margin-top: 0;
+}
+
+.intro-text-content p:last-child {
+    margin-bottom: 0;
 }
 
 .intro-title {
@@ -601,7 +622,90 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Algebra 圖片容器 - 文繞圖 */
+.algebra-image-container {
+    float: right;
+    width: 32%;
+    max-width: 340px;
+    margin: 0 0 1.5rem 1.8rem;
+    padding: 0;
+    shape-outside: margin-box;
+}
+
+.algebra-image-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 79, 101, 0.15),
+                0 4px 16px rgba(0, 79, 101, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, 
+        rgba(0, 79, 101, 0.02) 0%, 
+        rgba(175, 214, 227, 0.05) 50%, 
+        rgba(0, 79, 101, 0.02) 100%);
+    padding: 10px;
+    transition: all 0.4s ease;
+    width: 100%;
+}
+
+.algebra-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    padding: 2px;
+    background: linear-gradient(135deg, 
+        rgba(0, 79, 101, 0.3) 0%, 
+        rgba(175, 214, 227, 0.4) 50%, 
+        rgba(0, 79, 101, 0.3) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.algebra-image-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 79, 101, 0.2),
+                0 6px 20px rgba(0, 79, 101, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.algebra-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    position: relative;
+    z-index: 0;
+    transition: transform 0.4s ease;
+}
+
+.algebra-image-wrapper:hover .algebra-image {
+    transform: scale(1.02);
+}
+
+.algebra-image-overlay {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, 
+        rgba(0, 79, 101, 0.03) 0%, 
+        transparent 50%, 
+        rgba(175, 214, 227, 0.03) 100%);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .intro-text p {
@@ -611,6 +715,7 @@ body {
 .intro-text p:last-child {
     margin-bottom: 0;
 }
+
 
 .intro-image {
     display: flex;
@@ -1098,6 +1203,33 @@ body {
         gap: 2rem;
     }
     
+    .algebra-image-container {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+    
+    .intro-text-content {
+        text-align: center;
+    }
+    
+    .intro-text-content p {
+        text-align: left;
+    }
+    
+    .algebra-image-wrapper {
+        padding: 8px;
+    }
+    
+    .algebra-image-overlay {
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+    
     .use-cases-grid {
         grid-template-columns: 1fr;
     }
@@ -1170,6 +1302,39 @@ body {
     
     .contact-form {
         padding: 1.5rem;
+    }
+    
+    .algebra-image-container {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 1.5rem auto;
+        padding: 0;
+    }
+    
+    .intro-text-content {
+        text-align: center;
+    }
+    
+    .intro-text-content p {
+        text-align: left;
+    }
+    
+    .algebra-image-wrapper {
+        padding: 6px;
+        border-radius: 12px;
+    }
+    
+    .algebra-image {
+        border-radius: 8px;
+    }
+    
+    .algebra-image-overlay {
+        top: 6px;
+        left: 6px;
+        right: 6px;
+        bottom: 6px;
+        border-radius: 8px;
     }
 }
 
