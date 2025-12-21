@@ -96,6 +96,13 @@ body {
     width: auto;
 }
 
+.brand-logo {
+    height: 55px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
 .brand-name {
     color: var(--text-dark);
 }
@@ -855,6 +862,164 @@ body {
     gap: 2rem;
 }
 
+/* 硬體搭配與合作廠商 */
+.hardware-partnership {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+
+.hardware-info {
+    flex: 0 0 68%;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.hardware-image-wrapper {
+    flex-shrink: 0;
+    width: 300px;
+    max-width: 100%;
+}
+
+.hardware-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.partnership-info {
+    flex: 0 0 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 1.5rem;
+}
+
+.partnership-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.partnership-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+    text-align: center;
+}
+
+.partnership-image-wrapper {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partnership-image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.partnership-link:hover {
+    opacity: 0.8;
+}
+
+.hardware-icon,
+.partnership-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 79, 101, 0.2);
+}
+
+.hardware-content,
+.partnership-content {
+    flex: 1;
+}
+
+.hardware-content h3,
+.partnership-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.hardware-name,
+.partner-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 0 1rem 0;
+    letter-spacing: 0.02em;
+}
+
+.hardware-features {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+.hardware-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+}
+
+.hardware-features li:last-child {
+    margin-bottom: 0;
+}
+
+.hardware-features li i {
+    color: var(--primary-color);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.partner-name {
+    transition: all 0.3s ease;
+}
+
+.partner-contact {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin: 0.75rem 0 0 0;
+    font-style: italic;
+}
+
 .tech-item {
     background: var(--bg-white);
     border-radius: 12px;
@@ -1065,6 +1230,18 @@ body {
     line-height: 1.7;
 }
 
+.footer-logo {
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo-img {
+    height: 180px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    object-fit: contain;
+}
+
 .footer-section ul {
     list-style: none;
 }
@@ -1081,6 +1258,37 @@ body {
 }
 
 .footer-section ul li a:hover {
+    color: white;
+}
+
+.footer-contact {
+    margin-top: 2rem;
+}
+
+.footer-contact h4 {
+    margin-bottom: 1rem;
+}
+
+.footer-email {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-email i {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-email a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer-email a:hover {
     color: white;
 }
 
@@ -1236,6 +1444,30 @@ body {
     
     .technology-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .hardware-partnership {
+        gap: 1.5rem;
+    }
+    
+    .hardware-info {
+        flex: 0 0 68%;
+    }
+    
+    .partnership-info {
+        flex: 0 0 32%;
+    }
+    
+    .hardware-image-wrapper {
+        width: 225px;
+    }
+    
+    .partnership-image-wrapper {
+        width: 100%;
+    }
+    
+    .partnership-image {
+        max-width: 200px;
     }
     
     .contact-content {
