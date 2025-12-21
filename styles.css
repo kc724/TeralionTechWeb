@@ -1447,19 +1447,22 @@ body {
     }
     
     .hardware-partnership {
-        gap: 1.5rem;
+        flex-direction: column;
+        gap: 2rem;
     }
     
     .hardware-info {
-        flex: 0 0 68%;
+        flex: 0 0 100%;
+        width: 100%;
     }
     
     .partnership-info {
-        flex: 0 0 32%;
+        flex: 0 0 100%;
+        width: 100%;
     }
     
     .hardware-image-wrapper {
-        width: 225px;
+        width: 200px;
     }
     
     .partnership-image-wrapper {
