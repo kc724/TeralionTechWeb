@@ -6,19 +6,30 @@
 }
 
 :root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --accent-color: #3b82f6;
-    --text-dark: #1f2937;
-    --text-gray: #6b7280;
-    --text-light: #9ca3af;
+    /* 品牌主色 */
+    --primary-color: #004F65;
+    --primary-light: #AFD6E3;
+    /* 品牌辅助色 */
+    --secondary-color: #003043;
+    --secondary-light: #C7CECE;
+    /* 文字颜色 */
+    --text-dark: #003043;
+    --text-gray: #5a6c7d;
+    --text-light: #8a9ba8;
+    /* 背景颜色 */
     --bg-white: #ffffff;
-    --bg-light: #f9fafb;
-    --bg-gray: #f3f4f6;
-    --border-color: #e5e7eb;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --bg-light: #f5f9fa;
+    --bg-gray: #eef4f6;
+    /* 边框和分隔线 */
+    --border-color: #C7CECE;
+    /* 阴影 */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 79, 101, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 79, 101, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 79, 101, 0.15);
+    /* 渐变和强调色 */
+    --accent-color: #004F65;
+    --gradient-primary: linear-gradient(135deg, #004F65, #006080);
+    --gradient-light: linear-gradient(135deg, #AFD6E3, #c4e4f0);
 }
 
 body {
@@ -46,7 +57,9 @@ body {
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 8px rgba(0, 79, 101, 0.08),
+                0 4px 16px rgba(0, 79, 101, 0.06),
+                0 0 1px rgba(0, 48, 67, 0.1);
 }
 
 .nav-container {
@@ -118,13 +131,13 @@ body {
 }
 
 .nav-cta-btn {
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    background: var(--gradient-primary);
     color: white !important;
     padding: 0.5rem 1.25rem;
     border-radius: 6px;
-    border: 1px solid rgba(59, 130, 246, 0.5);
-    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3),
-                0 0 20px rgba(37, 99, 235, 0.2);
+    border: 1px solid rgba(0, 79, 101, 0.5);
+    box-shadow: 0 2px 10px rgba(0, 79, 101, 0.3),
+                0 0 20px rgba(0, 79, 101, 0.2);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -146,9 +159,9 @@ body {
 
 .nav-cta-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.5),
-                0 0 25px rgba(37, 99, 235, 0.4);
-    border-color: rgba(59, 130, 246, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 79, 101, 0.5),
+                0 0 25px rgba(0, 79, 101, 0.4);
+    border-color: rgba(0, 79, 101, 0.8);
     color: white !important;
 }
 
@@ -220,7 +233,7 @@ body {
     min-height: 70vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1419 100%);
+    background: linear-gradient(135deg, #003043 0%, #004F65 50%, #003043 100%);
     padding-top: 80px;
     position: relative;
     overflow: hidden;
@@ -250,12 +263,12 @@ body {
     height: 200%;
     background: linear-gradient(to bottom, 
         transparent 0%, 
-        rgba(37, 99, 235, 0.3) 20%, 
-        rgba(59, 130, 246, 0.6) 50%, 
-        rgba(37, 99, 235, 0.3) 80%, 
+        rgba(175, 214, 227, 0.3) 20%, 
+        rgba(175, 214, 227, 0.6) 50%, 
+        rgba(175, 214, 227, 0.3) 80%, 
         transparent 100%);
     animation: speedLineMove 2s linear infinite;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 10px rgba(175, 214, 227, 0.5);
 }
 
 .speed-line.line-1 {
@@ -322,9 +335,9 @@ body {
     position: absolute;
     width: 4px;
     height: 4px;
-    background: rgba(59, 130, 246, 0.8);
+    background: rgba(175, 214, 227, 0.8);
     border-radius: 50%;
-    box-shadow: 0 0 6px rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 6px rgba(175, 214, 227, 0.8);
     animation: particleMove 3s linear infinite;
 }
 
@@ -418,16 +431,16 @@ body {
     line-height: 1.1;
     margin-bottom: 1.5rem;
     color: white;
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    text-shadow: 0 0 20px rgba(175, 214, 227, 0.5);
     animation: titleGlow 3s ease-in-out infinite alternate;
 }
 
 @keyframes titleGlow {
     0% {
-        text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        text-shadow: 0 0 20px rgba(175, 214, 227, 0.5);
     }
     100% {
-        text-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 40px rgba(37, 99, 235, 0.6);
+        text-shadow: 0 0 30px rgba(175, 214, 227, 0.8), 0 0 40px rgba(0, 79, 101, 0.6);
     }
 }
 
@@ -445,10 +458,10 @@ body {
     gap: 0.75rem;
     padding: 1rem 2.5rem;
     margin-top: 2rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(229, 234, 255, 0.95));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(175, 214, 227, 0.95));
     border: 2px solid rgba(255, 255, 255, 0.35);
     border-radius: 50px;
-    color: #0a0e27;
+    color: #003043;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
@@ -457,7 +470,7 @@ body {
     z-index: 10;
     overflow: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.35),
+    box-shadow: 0 15px 35px rgba(0, 48, 67, 0.35),
                 inset 0 0 15px rgba(255, 255, 255, 0.4);
     cursor: pointer;
 }
@@ -489,7 +502,7 @@ body {
     bottom: -2px;
     background: linear-gradient(135deg, 
         rgba(255, 255, 255, 0.8), 
-        rgba(229, 234, 255, 0.8),
+        rgba(175, 214, 227, 0.8),
         rgba(255, 255, 255, 0.8));
     border-radius: 50px;
     z-index: -1;
@@ -500,7 +513,7 @@ body {
 
 .hero-cta-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.45),
+    box-shadow: 0 20px 40px rgba(0, 48, 67, 0.45),
                 inset 0 0 30px rgba(255, 255, 255, 0.5);
     border-color: rgba(255, 255, 255, 0.6);
 }
@@ -609,7 +622,7 @@ body {
     width: 100%;
     max-width: 500px;
     height: 400px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: var(--gradient-primary);
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -676,7 +689,7 @@ body {
 .use-case-image {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: var(--gradient-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -754,7 +767,7 @@ body {
 .tech-image {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: var(--gradient-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -840,7 +853,7 @@ body {
 .contact-item i {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: var(--gradient-primary);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -889,7 +902,7 @@ body {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 79, 101, 0.1);
 }
 
 .form-group textarea {
@@ -911,7 +924,7 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: var(--gradient-primary);
     color: white;
     box-shadow: var(--shadow-md);
 }
@@ -923,7 +936,7 @@ body {
 
 /* 頁腳 */
 .footer {
-    background: var(--text-dark);
+    background: var(--secondary-color);
     color: white;
     padding: 4rem 0 2rem;
 }
