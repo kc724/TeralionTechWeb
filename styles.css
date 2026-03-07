@@ -32,6 +32,10 @@
     --gradient-light: linear-gradient(135deg, #AFD6E3, #c4e4f0);
 }
 
+html {
+    scroll-padding-top: 100px; /* Offset for the fixed navigation bar */
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
