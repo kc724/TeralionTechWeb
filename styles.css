@@ -708,10 +708,6 @@ body {
     color: var(--primary-light);
 }
 
-.footer-contact {
-    margin-top: 2rem;
-}
-
 .footer-email {
     display: flex;
     align-items: center;
