@@ -63,6 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // 神經網路背景 — 每個區塊各自的節點網路，隨機漂移並隨滑鼠互動
     initNetworkCanvases(prefersReducedMotion);
 
+    // 架構流程圖 — 單一圖示依序在各階段間傳遞，抵達時淡出換上該站圖示
+    initDiagramFlow(prefersReducedMotion);
+
     // 表單提交處理（若頁面上有聯絡表單）
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
@@ -317,6 +320,104 @@ function initNetworkCanvases(prefersReducedMotion) {
             });
         }, { threshold: 0.01 });
         io.observe(canvas);
+    });
+}
+
+// 架構流程圖 — 一個圖示徽章沿著節點移動，抵達每一站時淡出舊圖示、換上該站的圖示，
+// 徽章位置由 JS 實測每個節點圖示的實際座標決定，響應式版面也能精準對齊。
+function initDiagramFlow(prefersReducedMotion) {
+    if (prefersReducedMotion) return;
+
+    document.querySelectorAll('.diagram-wrap').forEach(function(wrap) {
+        const flow = wrap.querySelector('.diagram-flow');
+        const traveler = wrap.querySelector('.diagram-traveler');
+        if (!flow || !traveler) return;
+
+        const travelerIcon = traveler.querySelector('i');
+        const nodes = Array.from(flow.querySelectorAll('.diagram-node'));
+        const arrows = Array.from(flow.querySelectorAll('.diagram-arrow'));
+        if (!nodes.length || !travelerIcon) return;
+
+        const iconClasses = nodes.map(function(node) {
+            const icon = node.querySelector('.diagram-icon i');
+            return icon ? icon.className : travelerIcon.className;
+        });
+
+        let positions = [];
+        function measure() {
+            const wrapRect = wrap.getBoundingClientRect();
+            positions = nodes.map(function(node) {
+                const icon = node.querySelector('.diagram-icon');
+                const r = icon.getBoundingClientRect();
+                return {
+                    x: r.left + r.width / 2 - wrapRect.left,
+                    y: r.top + r.height / 2 - wrapRect.top
+                };
+            });
+        }
+
+        let current = 0;
+        let intervalId = null;
+        let resizeTimer = null;
+
+        function moveTo(index) {
+            const pos = positions[index];
+            if (!pos) return;
+            traveler.style.transform = 'translate(' + pos.x + 'px, ' + pos.y + 'px)';
+
+            travelerIcon.classList.add('is-swapping');
+            setTimeout(function() {
+                travelerIcon.className = iconClasses[index] + ' is-swapping';
+                void travelerIcon.offsetWidth;
+                travelerIcon.classList.remove('is-swapping');
+            }, 240);
+
+            nodes.forEach(function(node, i) {
+                node.classList.toggle('is-active', i === index);
+            });
+            arrows.forEach(function(arrow, i) {
+                arrow.classList.toggle('is-active', i === index - 1);
+            });
+        }
+
+        function step() {
+            current = (current + 1) % nodes.length;
+            moveTo(current);
+        }
+
+        function start() {
+            if (intervalId) return;
+            measure();
+            traveler.classList.add('is-ready');
+            moveTo(current);
+            intervalId = setInterval(step, 1500);
+        }
+
+        function stop() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                measure();
+                moveTo(current);
+            }, 150);
+        });
+
+        const io = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    start();
+                } else {
+                    stop();
+                }
+            });
+        }, { threshold: 0.1 });
+        io.observe(wrap);
     });
 }
 

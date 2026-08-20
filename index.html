@@ -279,53 +279,49 @@
             <p class="eyebrow">HOW IT WORKS</p>
             <h2>從行情到下單，一個事件驅動的閉環</h2>
             <div class="diagram-wrap">
-                <svg viewBox="0 0 1250 260" xmlns="http://www.w3.org/2000/svg" class="diagram-svg" role="img" aria-label="市場行情經事件偵測、策略決策、風控、下單，最終送達交易所的流程圖">
-                    <defs>
-                        <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                            <path d="M0,0 L10,5 L0,10 z" fill="#004F65"></path>
-                        </marker>
-                    </defs>
+                <div class="diagram-flow" role="img" aria-label="市場行情經事件偵測、策略決策、風控、下單，最終送達交易所的流程圖，一個圖示會依序在各階段間傳遞並轉換">
+                    <div class="diagram-node">
+                        <div class="diagram-icon"><i class="fas fa-wave-square"></i></div>
+                        <div class="diagram-label">市場行情</div>
+                        <div class="diagram-sub">MARKET DATA &middot; TICK</div>
+                    </div>
+                    <div class="diagram-arrow" aria-hidden="true"><i class="fas fa-chevron-right"></i></div>
 
-                    <line x1="220" y1="105" x2="262" y2="105" class="diagram-line" marker-end="url(#arrowhead)"></line>
-                    <line x1="445" y1="105" x2="487" y2="105" class="diagram-line" marker-end="url(#arrowhead)"></line>
-                    <line x1="670" y1="105" x2="712" y2="105" class="diagram-line" marker-end="url(#arrowhead)"></line>
-                    <line x1="895" y1="105" x2="937" y2="105" class="diagram-line" marker-end="url(#arrowhead)"></line>
-                    <line x1="1120" y1="105" x2="1200" y2="105" class="diagram-line" marker-end="url(#arrowhead)"></line>
+                    <div class="diagram-node">
+                        <div class="diagram-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="diagram-label">事件偵測</div>
+                        <div class="diagram-sub">EVENT DETECTION</div>
+                    </div>
+                    <div class="diagram-arrow" aria-hidden="true"><i class="fas fa-chevron-right"></i></div>
 
-                    <g class="diagram-node">
-                        <rect x="40" y="60" width="180" height="90" rx="10"></rect>
-                        <text x="130" y="99" text-anchor="middle" class="diagram-label">市場行情</text>
-                        <text x="130" y="123" text-anchor="middle" class="diagram-sub">MARKET DATA &middot; TICK</text>
-                    </g>
+                    <div class="diagram-node">
+                        <div class="diagram-icon"><i class="fas fa-diagram-project"></i></div>
+                        <div class="diagram-label">策略決策</div>
+                        <div class="diagram-sub">STRATEGY DECISION</div>
+                    </div>
+                    <div class="diagram-arrow" aria-hidden="true"><i class="fas fa-chevron-right"></i></div>
 
-                    <g class="diagram-node">
-                        <rect x="265" y="60" width="180" height="90" rx="10"></rect>
-                        <text x="355" y="99" text-anchor="middle" class="diagram-label">事件偵測</text>
-                        <text x="355" y="123" text-anchor="middle" class="diagram-sub">EVENT DETECTION</text>
-                    </g>
+                    <div class="diagram-node">
+                        <div class="diagram-icon"><i class="fas fa-shield"></i></div>
+                        <div class="diagram-label">風控</div>
+                        <div class="diagram-sub">RISK CONTROL</div>
+                    </div>
+                    <div class="diagram-arrow" aria-hidden="true"><i class="fas fa-chevron-right"></i></div>
 
-                    <g class="diagram-node">
-                        <rect x="490" y="60" width="180" height="90" rx="10"></rect>
-                        <text x="580" y="99" text-anchor="middle" class="diagram-label">策略決策</text>
-                        <text x="580" y="123" text-anchor="middle" class="diagram-sub">STRATEGY DECISION</text>
-                    </g>
+                    <div class="diagram-node">
+                        <div class="diagram-icon"><i class="fas fa-paper-plane"></i></div>
+                        <div class="diagram-label">下單</div>
+                        <div class="diagram-sub">ORDER DISPATCH</div>
+                    </div>
+                    <div class="diagram-arrow" aria-hidden="true"><i class="fas fa-chevron-right"></i></div>
 
-                    <g class="diagram-node">
-                        <rect x="715" y="60" width="180" height="90" rx="10"></rect>
-                        <text x="805" y="99" text-anchor="middle" class="diagram-label">風控</text>
-                        <text x="805" y="123" text-anchor="middle" class="diagram-sub">RISK CONTROL</text>
-                    </g>
-
-                    <g class="diagram-node">
-                        <rect x="940" y="60" width="180" height="90" rx="10"></rect>
-                        <text x="1030" y="99" text-anchor="middle" class="diagram-label">下單</text>
-                        <text x="1030" y="123" text-anchor="middle" class="diagram-sub">ORDER DISPATCH</text>
-                    </g>
-
-                    <text x="1210" y="99" text-anchor="middle" class="diagram-endpoint">交易所</text>
-                    <text x="1210" y="123" text-anchor="middle" class="diagram-sub">EXCHANGE</text>
-                </svg>
-                <div class="diagram-pulse" aria-hidden="true"></div>
+                    <div class="diagram-node diagram-node--endpoint">
+                        <div class="diagram-icon"><i class="fas fa-building-columns"></i></div>
+                        <div class="diagram-label">交易所</div>
+                        <div class="diagram-sub">EXCHANGE</div>
+                    </div>
+                </div>
+                <div class="diagram-traveler" aria-hidden="true"><i class="fas fa-wave-square"></i></div>
             </div>
             <p class="diagram-note">為保護策略機密，以上為簡化後的概念流程，非實際生產架構。</p>
         </div>

@@ -243,53 +243,49 @@
             <p class="eyebrow">HOW IT WORKS</p>
             <h2>One event-driven loop, from tick to trade</h2>
             <div class="diagram-wrap">
-                <svg viewBox="0 0 1250 260" xmlns="http://www.w3.org/2000/svg" class="diagram-svg" role="img" aria-label="Flow from market data through event detection, strategy decision, risk control, and order dispatch to the exchange">
-                    <defs>
-                        <marker id="arrowhead-en" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                            <path d="M0,0 L10,5 L0,10 z" fill="#004F65"></path>
-                        </marker>
-                    </defs>
+                <div class="diagram-flow" role="img" aria-label="Flow from market data through event detection, strategy decision, risk control, and order dispatch to the exchange, with one icon passed along and transformed at each stage">
+                    <div class="diagram-node">
+                        <div class="diagram-icon"><i class="fas fa-wave-square"></i></div>
+                        <div class="diagram-label">Market Data</div>
+                        <div class="diagram-sub">TICK FEED</div>
+                    </div>
+                    <div class="diagram-arrow" aria-hidden="true"><i class="fas fa-chevron-right"></i></div>
 
-                    <line x1="220" y1="105" x2="262" y2="105" class="diagram-line" marker-end="url(#arrowhead-en)"></line>
-                    <line x1="445" y1="105" x2="487" y2="105" class="diagram-line" marker-end="url(#arrowhead-en)"></line>
-                    <line x1="670" y1="105" x2="712" y2="105" class="diagram-line" marker-end="url(#arrowhead-en)"></line>
-                    <line x1="895" y1="105" x2="937" y2="105" class="diagram-line" marker-end="url(#arrowhead-en)"></line>
-                    <line x1="1120" y1="105" x2="1200" y2="105" class="diagram-line" marker-end="url(#arrowhead-en)"></line>
+                    <div class="diagram-node">
+                        <div class="diagram-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="diagram-label">Event Detection</div>
+                        <div class="diagram-sub">REAL-TIME</div>
+                    </div>
+                    <div class="diagram-arrow" aria-hidden="true"><i class="fas fa-chevron-right"></i></div>
 
-                    <g class="diagram-node">
-                        <rect x="40" y="60" width="180" height="90" rx="10"></rect>
-                        <text x="130" y="103" text-anchor="middle" class="diagram-label">Market Data</text>
-                        <text x="130" y="127" text-anchor="middle" class="diagram-sub">TICK FEED</text>
-                    </g>
+                    <div class="diagram-node">
+                        <div class="diagram-icon"><i class="fas fa-diagram-project"></i></div>
+                        <div class="diagram-label">Strategy Decision</div>
+                        <div class="diagram-sub">DECISION</div>
+                    </div>
+                    <div class="diagram-arrow" aria-hidden="true"><i class="fas fa-chevron-right"></i></div>
 
-                    <g class="diagram-node">
-                        <rect x="265" y="60" width="180" height="90" rx="10"></rect>
-                        <text x="355" y="103" text-anchor="middle" class="diagram-label">Event Detect</text>
-                        <text x="355" y="127" text-anchor="middle" class="diagram-sub">REAL-TIME</text>
-                    </g>
+                    <div class="diagram-node">
+                        <div class="diagram-icon"><i class="fas fa-shield"></i></div>
+                        <div class="diagram-label">Risk Control</div>
+                        <div class="diagram-sub">CHECK</div>
+                    </div>
+                    <div class="diagram-arrow" aria-hidden="true"><i class="fas fa-chevron-right"></i></div>
 
-                    <g class="diagram-node">
-                        <rect x="490" y="60" width="180" height="90" rx="10"></rect>
-                        <text x="580" y="103" text-anchor="middle" class="diagram-label">Strategy</text>
-                        <text x="580" y="127" text-anchor="middle" class="diagram-sub">DECISION</text>
-                    </g>
+                    <div class="diagram-node">
+                        <div class="diagram-icon"><i class="fas fa-paper-plane"></i></div>
+                        <div class="diagram-label">Order Dispatch</div>
+                        <div class="diagram-sub">EXECUTION</div>
+                    </div>
+                    <div class="diagram-arrow" aria-hidden="true"><i class="fas fa-chevron-right"></i></div>
 
-                    <g class="diagram-node">
-                        <rect x="715" y="60" width="180" height="90" rx="10"></rect>
-                        <text x="805" y="103" text-anchor="middle" class="diagram-label">Risk Control</text>
-                        <text x="805" y="127" text-anchor="middle" class="diagram-sub">CHECK</text>
-                    </g>
-
-                    <g class="diagram-node">
-                        <rect x="940" y="60" width="180" height="90" rx="10"></rect>
-                        <text x="1030" y="103" text-anchor="middle" class="diagram-label">Order Dispatch</text>
-                        <text x="1030" y="127" text-anchor="middle" class="diagram-sub">EXECUTION</text>
-                    </g>
-
-                    <text x="1210" y="103" text-anchor="middle" class="diagram-endpoint">Exchange</text>
-                    <text x="1210" y="127" text-anchor="middle" class="diagram-sub">MARKET</text>
-                </svg>
-                <div class="diagram-pulse" aria-hidden="true"></div>
+                    <div class="diagram-node diagram-node--endpoint">
+                        <div class="diagram-icon"><i class="fas fa-building-columns"></i></div>
+                        <div class="diagram-label">Exchange</div>
+                        <div class="diagram-sub">MARKET</div>
+                    </div>
+                </div>
+                <div class="diagram-traveler" aria-hidden="true"><i class="fas fa-wave-square"></i></div>
             </div>
             <p class="diagram-note">Simplified for illustration to protect our production architecture — not a literal system diagram.</p>
         </div>
