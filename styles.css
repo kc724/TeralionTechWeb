@@ -41,6 +41,10 @@ html {
     scroll-behavior: smooth;
 }
 
+html {
+    scroll-padding-top: 100px; /* Offset for the fixed navigation bar */
+}
+
 body {
     font-family: var(--font-sans);
     line-height: 1.6;
